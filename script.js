@@ -1,62 +1,77 @@
 $(function(){
-   //create a random array of options from 0 to 70
 
-    $.fn.toggleText = function(from, to){
-        var elem = $(this),
-            elemText = elem.text() == from ? to : from;
-
-        return elem.text(elemText);
-    };
-
-   var top = 0,
-       bottom =  $('.string-wrap').height(),
-       step = ($('.string').outerHeight(true))/2,
-       number = bottom / step,
-       noteArr=[],
-       note = $('.note'),
-       math = Math,
-       timer = $('.timer__select'),
-       timerBtn = $('.timer__button'),
-       timerActiveClass = 'timer__button--active',
-       speed = timer.val()*1000,
-       timerId;
+    var stringWrap = $('.string-wrap'),
+        positionTop = 0,
+        positionBottom =  stringWrap.height(),
+        step = ($('.string').outerHeight(true))/2,
+        number = positionBottom / step,
+        noteArr=[],
+        note = $('.note'),
+        math = Math,
+        timer = $('#timer__select'),
+        numberSelect = $('#number__select'),
+        submitBtn = $('.settings__button'),
+        submitActiveClass = 'settings__button--active',
+        timerId,
+        select = $('.select');
 
    for (var i=0; i<number; i++){
-       noteArr.push(top);
-       top+=step;
+       noteArr.push(positionTop);
+       positionTop+=step;
    }
 
-    randomizePositions(noteArr);
+    addNotes();
 
-    timerBtn.on('click', function(){
-        (timerBtn.hasClass(timerActiveClass)) ? finishNotes() : startNotes();
+    submitBtn.on('click', function(){
+        (submitBtn.hasClass(submitActiveClass)) ? finishNotesAction() : startNotesAction();
     });
 
-    timer.on('change', function(){
-        speed = timer.val()*1000;
-        finishNotes();
+    select.on('change', function(){
+        finishNotesAction();
+        getSettingsValue($(this));
     });
 
+   function getSettingsValue(select){
+        return select.val();
+    }
 
-    function randomizePositions(arr){
+    function addNotes(){
+        if(note) {
+            note.remove();
+        }
+        var noteNumber = getSettingsValue(numberSelect);
+        stringWrap.each(function(){
+            for (var k = 0; k<noteNumber; k++){
+                $(this).append($('<div>', {
+                    class: 'note note--'+ (k)
+                }));
+            }
+        });
+        note = $('.note');
+        randomizePositioning(noteArr);
+    }
+
+    function randomizePositioning(arr){
         note.each(function(){
             var randomIndex = math.floor(math.random() * 15);
             $(this).css('top', arr[randomIndex])
         });
     }
 
-    function finishNotes(){
+    function finishNotesAction(){
         clearInterval(timerId);
         timerId = 0;
-        timerBtn.removeClass(timerActiveClass);
-        timerBtn.text('Start!');
+        submitBtn.removeClass(submitActiveClass);
+        submitBtn.text('Start!');
     }
 
-    function startNotes(){
+    function startNotesAction(){
+        addNotes();
+        var speed = getSettingsValue(timer) * 1000;
         timerId = setInterval(function(){
-            randomizePositions(noteArr);
+            randomizePositioning(noteArr);
         }, speed);
-        timerBtn.addClass(timerActiveClass);
-        timerBtn.text('Stop!')
+        submitBtn.addClass(submitActiveClass);
+        submitBtn.text('Stop!')
     }
 });

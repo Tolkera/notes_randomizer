@@ -1,3 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    border: 0;
+    color: #3A3C3D;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
 .container {
     width: 500px;
     margin: 0 auto;
@@ -18,7 +38,7 @@
 }
 
 .string--extra {
-    background: rgba(0,0,0,.1);
+    background: rgba(0,0,0,.05);
     width: 100%;
 }
 
@@ -55,31 +75,46 @@
     border-radius: 50%;
     background: #000;
     position: absolute;
-    top: 0;
-    left: 90px;
     -webkit-transform: rotate(-25deg);
     transform: rotate(-25deg);
 }
 
-.controls {
-    overflow: hidden;
-    margin-top: 30px;
+.note--0 {
+    left: 70px;
 }
 
-.timer {
+.note--1{
+    left: 100px;
+
+}
+
+.note--2{
+    left: 130px;
+
+}
+
+.controls {
+    padding: 30px 0;
+    background: #3A3C3D;
+}
+
+.controls__item {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.controls__item:first-child {
+    margin-left: 0;
+}
+
+.options {
     float: left;
 }
 
-.timer__select {
-    height: 50px;
-    font-size: 30px;
-    outline: none;
-}
-
-.timer__button {
-    margin-top: 10px;
+.settings__button {
     float: right;
-    padding: 10px 80px;
+    height: 50px;
+    width: 200px;
     background: #34BA56;
     color: #fff;
     font-size: 20px;
@@ -93,35 +128,45 @@
     animation: color_change 1s infinite alternate;
 }
 
-.timer__button:hover {
+.settings__button:hover {
     background: #5DCF77;
     cursor: pointer;
     -webkit-animation: none;
     animation: none;
 }
 
-.timer__button:active {
+.settings__button:active {
     background: #5FD97C;
     -webkit-animation: none;
     animation: none;
 }
 
-.timer__button--active {
-    background: #C9D4D4;
+.settings__button--active {
+    background: #C5C8C9;
     -webkit-animation: none;
     animation: none;
 }
 
-.timer__button--active:hover {
+.settings__button--active:hover {
     background: #D3DBDB;
 }
 
-.timer__button--active:active {
+.settings__button--active:active {
     background: #DEE3E3;
 }
 
-.timer__label {
+.label {
     font-size: 16px;
+    color: #fff;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.select {
+    font-size: 30px;
+    height: 50px;
+    outline: none;
 }
 
 @-webkit-keyframes color_change {
