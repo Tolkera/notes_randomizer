@@ -3,35 +3,64 @@
 <head>
     <title>Randomizer</title>
     <link rel="stylesheet" href="main.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="script.js"></script>
 </head>
 <body>
 
-<div class="container">
-    <div class="string-wrap">
-        <div class="key key--treble"></div>
-        <div class="string string--extra string--extra-top"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string string--extra string--extra-bottom"></div>
 
+
+<div class="container">
+
+    <div class="controls cf">
+        <form action="#" class="timer">
+            <label for="timer__select" class="timer__label">Set Speed</label>
+            <select name="" id="timer__select" class="timer__select">
+                <option value="1">1</option>
+                <option value="3" selected="selected">3</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="60">60</option>
+            </select>
+        </form>
+        <button type="button" class="timer__button">Start</button>
     </div>
 
-    <div class="string-wrap">
-        <div class="note"></div>
-        <div class="key key--bass"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string"></div>
-        <div class="string string--extra string--extra-bottom"></div>
-        <div class="string string--extra string--extra-top"></div>
+    <div class="strings">
+        <div class="string-wrap">
+            <div class="note"></div>
+            <div class="key key--treble"></div>
+            <div class="string string--extra"></div>
+            <div class="string string--extra"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string string--extra"></div>
+        </div>
 
+        <div class="string-wrap">
+            <div class="note"></div>
+            <div class="key key--bass"></div>
+            <div class="string string--extra"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string"></div>
+            <div class="string string--extra"></div>
+            <div class="string string--extra"></div>
+        </div>
     </div>
 </div>
+
 
 </body>
 </html>

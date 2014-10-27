@@ -3,28 +3,27 @@
     margin: 0 auto;
 }
 
+.strings {
+    margin-top: 150px;
+}
+
 .string {
     height: 1px;
     margin-bottom: 9px;
     background: #000;
 }
 
-.string--extra {
-    background: rgba(0,0,0,.3);
-    position: absolute;
-    width: 100%;
+.string:last-child{
     margin-bottom: 0;
 }
 
-.string--extra-top {
-    top: -9px;
-}
-
-.string--extra-bottom {
-    bottom: -9px;
+.string--extra {
+    background: rgba(0,0,0,.1);
+    width: 100%;
 }
 
 .string-wrap {
+    padding-top: 4px;
     margin-top: 50px;
     position: relative;
 }
@@ -37,17 +36,17 @@
 }
 
 .key--treble {
-    top: -17px;
-    height: 74px;
-    width: 27px;
+    top: 12px;
+    height: 69px;
+    width: 25px;
     background-image: url(img/key.png)
 }
 
 .key--bass {
     background-image: url(img/bas.png);
-    top: 0;
-    height: 39px;
-    width: 30px;
+    top: 16px;
+    height: 34px;
+    width: 27px;
 }
 
 .note {
@@ -56,10 +55,92 @@
     border-radius: 50%;
     background: #000;
     position: absolute;
-    top: 50%;
+    top: 0;
     left: 90px;
     -webkit-transform: rotate(-25deg);
     transform: rotate(-25deg);
-
 }
 
+.controls {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.timer {
+    float: left;
+}
+
+.timer__select {
+    height: 50px;
+    font-size: 30px;
+    outline: none;
+}
+
+.timer__button {
+    margin-top: 10px;
+    float: right;
+    padding: 10px 80px;
+    background: #34BA56;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    -webkit-animation: color_change 1.5s infinite alternate;
+    -moz-animation: color_change 1s infinite alternate;
+    -ms-animation: color_change 1s infinite alternate;
+    -o-animation: color_change 1s infinite alternate;
+    animation: color_change 1s infinite alternate;
+}
+
+.timer__button:hover {
+    background: #5DCF77;
+    cursor: pointer;
+    -webkit-animation: none;
+    animation: none;
+}
+
+.timer__button:active {
+    background: #5FD97C;
+    -webkit-animation: none;
+    animation: none;
+}
+
+.timer__button--active {
+    background: #C9D4D4;
+    -webkit-animation: none;
+    animation: none;
+}
+
+.timer__button--active:hover {
+    background: #D3DBDB;
+}
+
+.timer__button--active:active {
+    background: #DEE3E3;
+}
+
+.timer__label {
+    font-size: 16px;
+}
+
+@-webkit-keyframes color_change {
+    from { background-color: #34A84F; }
+    to { background-color: #47D668; }
+}
+@-moz-keyframes color_change {
+    from { background-color: #34A84F; }
+    to { background-color: #47D668; }
+}
+@-ms-keyframes color_change {
+    from { background-color: #34A84F; }
+    to { background-color: #47D668; }
+}
+@-o-keyframes color_change {
+    from { background-color: #34A84F; }
+    to { background-color: #47D668; }
+}
+@keyframes color_change {
+    from { background-color: #34A84F; }
+    to { background-color: #47D668; }
+}
