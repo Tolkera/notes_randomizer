@@ -21,6 +21,8 @@ select {
 .container {
     width: 500px;
     margin: 0 auto;
+
+
 }
 
 .strings {
@@ -50,7 +52,6 @@ select {
 
 .key {
     position: absolute;
-    -webkit-background-size: cover;
     background-size: cover;
     left: 5px;
 }
