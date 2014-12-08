@@ -4,13 +4,12 @@ $(function(){
 
   var noteRandomizer = (function(){
 
-        var stringWrap = $('.string-wrap'),
-            positionTop = 5,
+        var positionTop = 5,
             positionBottom =  75,
             step = 5,
             number = positionBottom / step,
             noteArr = [],
-            note = $('.note'),
+            note,
             math = Math,
             timer = $('#timer__select'),
             numberSelect = $('#number__select'),
@@ -18,8 +17,8 @@ $(function(){
             submitActiveClass = 'settings__button--active',
             timerId,
             select = $('.select'),
-            randomIndex = 0;
-
+            randomIndex = 0,
+            strings = $('.strings');
 
       for (var i=0; i<number; i++){
             noteArr.push(positionTop);
@@ -31,19 +30,18 @@ $(function(){
                 if(note) {
                     note.remove();
                 }
-                var noteNumber = this.getSettingsValue(numberSelect);
+                var stringWrap = $('.string-wrap'),
+                    noteNumber = this.getSettingsValue(numberSelect);
+
                 stringWrap.each(function(){
                     var positionY = 60;
                     for (var k = 0; k<noteNumber; k++){
                         $(this).append("<ellipse class='note' cx='" + positionY + "' cy='5'  rx='7' ry='5' fill='#000' />");
                         positionY +=40;
                     }
-                    stringWrap.each(function(){
-                        $(this).html($(this).html())
-                    })
 
                 });
-                note = $('.note');
+                strings.html(strings.html()); //need to refresh the html for the svg to re-render
                 this.randomizePositioning(noteArr);
             },
 
@@ -52,6 +50,8 @@ $(function(){
             },
 
             randomizePositioning: function(arr){
+                note = $('.note');
+
                 note.each(function(){
                     randomIndex = math.floor(math.random() * 15);
                     $(this).attr('cy', arr[randomIndex])
