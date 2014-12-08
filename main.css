@@ -21,77 +21,30 @@ select {
 .container {
     width: 500px;
     margin: 0 auto;
-
-
 }
 
 .strings {
     margin-top: 150px;
 }
 
-.string {
-    height: 1px;
-    margin-bottom: 9px;
-    background: #000;
-}
-
-.string:last-child{
-    margin-bottom: 0;
-}
-
-.string--extra {
-    background: rgba(0,0,0,.1);
-    width: 100%;
-}
 
 .string-wrap {
-    padding-top: 4px;
+    width: 500px;
+    height: 80px;
     margin-top: 50px;
-    position: relative;
 }
 
-.key {
-    position: absolute;
-    background-size: cover;
-    left: 5px;
+line.string {
+    stroke-width: 1px;
+    stroke: #000;
 }
 
-.key--treble {
-    top: 12px;
-    height: 69px;
-    width: 25px;
-    background-image: url(img/key.png)
+line.string--extra {
+    stroke: #D4D2D6;
 }
 
-.key--bass {
-    background-image: url(img/bas.png);
-    top: 16px;
-    height: 34px;
-    width: 27px;
-}
-
-.note {
-    width: 14px;
-    height: 10px;
-    border-radius: 50%;
-    background: #000;
-    position: absolute;
-    -webkit-transform: rotate(-25deg);
-    transform: rotate(-25deg);
-}
-
-.note--0 {
-    left: 70px;
-}
-
-.note--1{
-    left: 100px;
-
-}
-
-.note--2{
-    left: 130px;
-
+line {
+    shape-rendering:crispEdges
 }
 
 .controls {

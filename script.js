@@ -5,9 +5,9 @@ $(function(){
   var noteRandomizer = (function(){
 
         var stringWrap = $('.string-wrap'),
-            positionTop = 0,
-            positionBottom =  stringWrap.height(),
-            step = ($('.string').outerHeight(true))/2,
+            positionTop = 5,
+            positionBottom =  75,
+            step = 5,
             number = positionBottom / step,
             noteArr = [],
             note = $('.note'),
@@ -21,7 +21,7 @@ $(function(){
             randomIndex = 0;
 
 
-        for (var i=0; i<number; i++){
+      for (var i=0; i<number; i++){
             noteArr.push(positionTop);
             positionTop+=step;
         }
@@ -33,11 +33,15 @@ $(function(){
                 }
                 var noteNumber = this.getSettingsValue(numberSelect);
                 stringWrap.each(function(){
+                    var positionY = 60;
                     for (var k = 0; k<noteNumber; k++){
-                        $(this).append($('<div>', {
-                            class: 'note note--'+ (k)
-                        }));
+                        $(this).append("<ellipse class='note' cx='" + positionY + "' cy='5'  rx='7' ry='5' fill='#000' />");
+                        positionY +=40;
                     }
+                    stringWrap.each(function(){
+                        $(this).html($(this).html())
+                    })
+
                 });
                 note = $('.note');
                 this.randomizePositioning(noteArr);
@@ -50,7 +54,7 @@ $(function(){
             randomizePositioning: function(arr){
                 note.each(function(){
                     randomIndex = math.floor(math.random() * 15);
-                    $(this).css('top', arr[randomIndex])
+                    $(this).attr('cy', arr[randomIndex])
                 });
             },
 
