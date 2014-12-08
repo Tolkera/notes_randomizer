@@ -9,7 +9,7 @@ $(function(){
             positionBottom =  stringWrap.height(),
             step = ($('.string').outerHeight(true))/2,
             number = positionBottom / step,
-            noteArr=[],
+            noteArr = [],
             note = $('.note'),
             math = Math,
             timer = $('#timer__select'),
@@ -18,7 +18,7 @@ $(function(){
             submitActiveClass = 'settings__button--active',
             timerId,
             select = $('.select'),
-             randomIndex = 0;
+            randomIndex = 0;
 
 
         for (var i=0; i<number; i++){
