@@ -19,12 +19,13 @@ select {
 }
 
 .container {
-    width: 500px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
 .strings {
     margin-top: 150px;
+    text-align: center;
 }
 
 
@@ -40,7 +41,7 @@ line.string {
 }
 
 line.string--extra {
-    stroke: #D4D2D6;
+    stroke: #eceaee;
 }
 
 line {
@@ -50,6 +51,7 @@ line {
 .controls {
     padding: 30px 0;
     background: #3A3C3D;
+    text-align: center;
 }
 
 .controls__item {
@@ -80,6 +82,7 @@ line {
     -ms-animation: color_change 1s infinite alternate;
     -o-animation: color_change 1s infinite alternate;
     animation: color_change 1s infinite alternate;
+
 }
 
 .settings__button:hover {
@@ -143,4 +146,33 @@ line {
 @keyframes color_change {
     from { background-color: #34A84F; }
     to { background-color: #47D668; }
+}
+
+
+
+@media(max-width: 1000px){
+    .settings__button {
+        float: none;
+        margin-top: 20px;
+    }
+
+    .options {
+        float: none
+    }
+
+    .string-wrap {
+        width: 90%;
+    }
+
+    .select {
+        font-size: 20px;
+    }
+
+    .label {
+        font-size: 13px;
+    }
+
+    .strings {
+        margin-top: 0px;
+    }
 }
